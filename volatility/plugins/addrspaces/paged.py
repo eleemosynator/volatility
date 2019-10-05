@@ -180,7 +180,7 @@ class AbstractWritablePagedMemory(AbstractPagedMemory):
         # For each allocation...
         while remaining > 0:
             # Determine whether we're within an alloc or not
-            alloc_remaining = (self.alignment_gcd - (vaddr % self.alignment_gcd))
+            alloc_remaining = (self.alignment_gcd - (position % self.alignment_gcd))
             # Try to jump out early
             paddr = self.translate(position)
             datalen = min(remaining, alloc_remaining)
